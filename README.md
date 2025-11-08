@@ -208,7 +208,7 @@ Jeśli użytkownik daje instrukcję, sprawdź kontekst (poprzednie wiadomości t
 
 
 
-**MAKE SCENATIO**
+**MAKE SCENARIO**
 --------------------
 
 <img width="909" height="822" alt="image" src="https://github.com/user-attachments/assets/37af129c-67af-4ff7-9113-fe23d41d23e4" />
