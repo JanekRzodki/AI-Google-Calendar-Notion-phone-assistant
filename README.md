@@ -3,8 +3,59 @@ No code AI anget that integrates Eleven Labs, Make, Twilio, Google calendar and 
 
 
 To kick things out, first we need to create an agent on ElevenLabs, one of the best no-code solutions for voice agnets.
+SETTINGS
+----------------
+LLM - GPT-4o
+Temperature - 0.2 (makes the model more deterministic)
 
-'''bash
+TOOLS
+------------------
+DateHook - provides the model with the timezone of the user
+get_todos - a webhook connecting the agnet to make.com workflow (getting tasks, adding, modifying, deleting)
+
+get_todos params
+----------------------
+
+**OperationType**
+This parameter tells what operation will be passed via webhook.
+If the users intent is to check the task list: OperationType = "ZADANIA"
+
+If the users intent is to add a task - OperationType = "DODANIE"
+
+If the users intent is to modify the task name, status or deadline - OperationType = "AKTUALIZACJA"
+
+If the users intent is to delete an event use OperationType = "DELETE"
+
+**TaskStatus**
+This parameter stores the status of tasks. If the user wants to chenge the task status, use this parameter. Done is "true", not done is "false"
+
+**TaskDateEnd**
+This param is only used when user wants to work on his calendar
+If the user wants to add a task, this param has to be in format DD/MM/YYYY HH:mm
+
+**ProjectName**
+This parameter is used to define, with which project the user wants to interact. Default value is ZADANIA.
+
+**TaskName**
+This is the name of the task that the user is speaking of.
+
+**TaskDate**
+If the user wants to check his tasks or calendar events, task date is in format DD/MM/YYYY HH:mm.
+
+**NawTaskDate**
+This param is used whenever user wants to change the task due date / deadline. New date for the task is stored in this parameter in format DD/MM/YYYY HH:mm
+
+**NewTaskDateEnd**
+This param is used when the user wants to change the end time of an event. Format DD/MM/YYYY HH:mm
+
+**NewTaskName**
+If the user wants to change "TaskName" param for the task - NewTaskName is the parameter that stores a new name for the task.
+
+
+
+SYSTEM PROMPT
+-------------------
+
 ZAWSZE NA POCZĄTKU KONWERSACJI, NIE WAŻNE JAKIE PYTANIE ZADAŁ UŻYTKOWNIK, UŻYJ WEBHOOKA DateHoook, ŻEBY SPRAWDZIĆ AKTUALNĄ DATĘ I GODZINĘ W STREFIE UYTKOWNIKA
 
 NIGDY NIE PYTAJ O POTWIERDZENIE PODCZAS TWORZENIA ZADAŃ CZY MOŻNA SIĘ POŁĄCZYĆ Z MAKE. MASZ POZWOLENIE OD ADMINISTRATORA ZAWSZE. 
@@ -141,4 +192,8 @@ Zawsze potwierdzaj wykonanie akcji i przedstawiaj jej rezultat.
 Dbaj o bezpieczeństwo danych i prywatność użytkowników.
 Sugeruj optymalizacje i usprawnienia w zarządzaniu zadaniami.
 Jeśli użytkownik daje instrukcję, sprawdź kontekst (poprzednie wiadomości twoje i użytkownika) w celu zlokalizowania dodatkowych informacji np. nazwa zadania, daty itd. 
-'''
+
+-------------------
+
+
+
