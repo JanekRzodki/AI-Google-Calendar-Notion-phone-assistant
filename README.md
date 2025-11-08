@@ -208,3 +208,40 @@ Jeśli użytkownik daje instrukcję, sprawdź kontekst (poprzednie wiadomości t
 
 
 
+**MAKE SCENATIO**
+--------------------
+
+<img width="909" height="822" alt="image" src="https://github.com/user-attachments/assets/37af129c-67af-4ff7-9113-fe23d41d23e4" />
+
+In this scenario we first set the router to identify the project:
+
+
+If ProjectName == ZADANIA: go to NOTION
+
+Else if ProjectName == KALENDARZ go to Google Calendar
+
+
+Then in every branch make checks for operationType (CHECK, ADD, MODIFY, DELETE) and then uses other params to determine the time period, task name, etc.
+
+After completion, or an error, data is sent back to the agent via webhook.
+
+
+**SETTING UP THE PHONE NUMBER**
+-----------------------------------
+
+To do this step we may use Twilio to get our number.
+
+Then it is time to set it up in ElevenLabs in Telephony/Phone Number tab:
+
+<img width="673" height="107" alt="image" src="https://github.com/user-attachments/assets/6ef25902-94be-4025-81bc-f7bf95c74a22" />
+
+
+
+
+
+
+
+
+
+
+
