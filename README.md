@@ -5,12 +5,12 @@ No code AI anget that integrates Eleven Labs, Make, Twilio, Google calendar and 
 To kick things out, first we need to create an agent on ElevenLabs, one of the best no-code solutions for voice agnets.
 SETTINGS
 ----------------
-LLM - GPT-4o
+LLM - GPT-4o.
 Temperature - 0.2 (makes the model more deterministic)
 
 TOOLS
 ------------------
-DateHook - provides the model with the timezone of the user
+DateHook - provides the model with the timezone of the user.
 get_todos - a webhook connecting the agnet to make.com workflow (getting tasks, adding, modifying, deleting)
 
 get_todos params
